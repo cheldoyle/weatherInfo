@@ -1,0 +1,18 @@
+div {
+    text-align: center;
+    font-size: 1.5vmax;
+}
+.infoSpace {
+    padding-top: 5%;
+}
+.dayInfo {
+    width: 12%;
+    border: 1px black solid;
+    margin: 1%;
+}
+.dayInfo:hover {
+    cursor: pointer;
+}
+.days {
+    display: inline-flexbox;
+}
