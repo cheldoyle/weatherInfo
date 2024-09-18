@@ -48,53 +48,7 @@ function getAddress(lat, lon) {
 function foreCastDisplay(forecast) {
     console.log(forecast)
     let count = 0;
-    /*
-    let dayOne = document.querySelector(".dayOne .day");
-    let dayOneImg = document.querySelector(".dayOne .dayImg");
-    let dayOneTemp = document.querySelector(".dayOne .temp");
 
-    let dayTwo = document.querySelector(".dayTwo .day");
-    let dayTwoImg = document.querySelector(".dayTwo .dayImg");
-    let dayTwoTemp = document.querySelector(".dayTwo .temp");
-
-    let dayThree = document.querySelector(".dayThree .day");
-    let dayThreeImg = document.querySelector(".dayThree .dayImg");
-    let dayThreeTemp = document.querySelector(".dayThree .temp");
-
-    let dayFour = document.querySelector(".dayFour .day");
-    let dayFourImg = document.querySelector(".dayFour .dayImg");
-    let dayFourTemp = document.querySelector(".dayFour .temp");
-
-    let dayFive = document.querySelector(".dayFive .day");
-    let dayFiveImg = document.querySelector(".dayFive .dayImg");
-    let dayFiveTemp = document.querySelector(".dayFive .temp");
-
-    let daySix = document.querySelector(".daySix .day");
-    let daySixImg = document.querySelector(".daySix .dayImg");
-    let daySixTemp = document.querySelector(".daySix .temp");
-
-    let daySeven = document.querySelector(".daySeven .day");
-    let daySevenImg = document.querySelector(".dayOne .dayImg");
-    let daySevenTemp = document.querySelector(".daySeven .temp");
-
-    
-
-    dayOne.innerHTML = forecast.properties.periods[0].name;
-    dayOneImg.src = forecast.properties.periods[0].icon;
-    dayOneTemp.innerHTML = forecast.properties.periods[0].temperature;
-
-    dayTwo.innerHTML = forecast.properties.periods[2].name;
-
-    dayThree.innerHTML = forecast.properties.periods[4].name;
-
-    dayFour.innerHTML = forecast.properties.periods[6].name;
-
-    dayFive.innerHTML = forecast.properties.periods[8].name;
-
-    daySix.innerHTML = forecast.properties.periods[10].name;
-
-    daySeven.innerHTML = forecast.properties.periods[12].name;
-*/
     for (let i = 1; i < 8; i++) {
         let dayDisplay = document.querySelector(`.day${i} .day`);
         let tempImg = document.querySelector(`.day${i} .dayImg`);
@@ -106,7 +60,21 @@ function foreCastDisplay(forecast) {
     }
 };
 
+function checkDayName(count, forecast) {
+    let dayCheck = forecast.properties.periods[count].name;
+    let nightCheck = dayCheck.split(" ");
+    let newCount = count;
+    for (let i = 0; i < nightCheck.length; i++) {
+        if (nightCheck[i] == "Night") {
+            newCount = count - 1;
+        }
+    };
+
+    return newCount;
+}
+
 function foreCastDataCollection(forecast, day, tempImg, tempDisplay, shortCast, windDisplay, count) {
+    count = checkDayName(count, forecast);
     let dayName = forecast.properties.periods[count].name;
     let dayImg;
     let dayTemp = forecast.properties.periods[count].temperature;
