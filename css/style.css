@@ -1,13 +1,20 @@
+body {
+    color: white;
+}
 div {
     text-align: center;
-    font-size: 1.5vmax;
+    font-size: 1vmax;
+}
+h1 {
+    font-size: 7vmax;
 }
 .infoSpace {
     padding-top: 5%;
 }
 .dayInfo {
     width: 12%;
-    border: 1px black solid;
+    height: 50%;
+    border: 1px white solid;
     margin: 1%;
 }
 .dayInfo:hover {
@@ -15,4 +22,37 @@ div {
 }
 .days {
     display: inline-flexbox;
+    margin: auto;
+}
+.day {
+    margin-bottom: 0;
+}
+.shortCast, .windS, .windD {
+    visibility: hidden;
+    display: none;
+}
+.daySpace {
+    border: 1px white solid;
+    width: 100%;
+    margin: auto;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.forecastInfo p {
+    text-align: right;
+}
+.wi {
+    font-size: 3vmax;
+}
+.isDay {
+    background-image: linear-gradient(to bottom, #306bb1, #3c74b7, #487dbe, #5387c4, #5e90ca, #679cd1, #71a8d8, #7db4de, #8ec5e6, #a3d6ee, #b9e7f6, #d2f7ff);
+    background-color: #d2f7ff;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.isNight {
+    background-image: linear-gradient(to bottom, #1f1c23, #232027, #27252b, #2c292f, #302e33, #343237, #38363a, #3c3a3e, #403e42, #444246, #49474b, #4d4b4f);
+    background-color: #4d4b4f;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
