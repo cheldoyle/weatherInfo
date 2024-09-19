@@ -5,8 +5,6 @@ let city;
 
 let dayInfo = document.querySelectorAll(".dayInfo");
 
-let example = document.querySelector(".example");
-
 let dayTop = document.getElementById("dayName");
 let tempTop = document.getElementById("tempLoc");
 let imgTop = document.getElementById("forecastImgTop");
@@ -60,8 +58,6 @@ function foreCastDisplay(forecast) {
     let time = forecast.properties.periods[0].isDaytime;
     let dayNightSwitch = timeCheck(time)
 
-    example.src = forecast.properties.periods[0].icon;
-
     document.body.classList.add(dayNightSwitch);
 
     for (let i = 1; i < 8; i++) {
@@ -110,7 +106,7 @@ function foreCastDataCollection(forecast, day, tempImg, tempDisplay, castInfo, w
     let starterImg = forecastImg(starterInfo);
 
     dayTop.innerHTML = forecast.properties.periods[0].name;
-    tempTop.innerHTML = forecast.properties.periods[0].temperature + "°";
+    tempTop.innerHTML = forecast.properties.periods[0].temperature + "°" + tempType;
     imgTop.classList.add(starterImg);
     foreTop.innerHTML = forecast.properties.periods[0].detailedForecast;
     windSTop.innerHTML = forecast.properties.periods[0].windSpeed;
@@ -153,7 +149,7 @@ function forecastImg(descrip) {
             imgClass = "wi-day-showers";
             break;
         }
-        else if ((descripSearch[i] == "Sunny.") || (descripSearch[i] == "Sunny,") || (descripSearch[i] == "Sunny")) {
+        else if ((descripSearch[i] == "Sunny.") || (descripSearch[i] == "Sunny,") || (descripSearch[i] == "Sunny") || (descripSearch[i] == "sunny") || (descripSearch[i] == "sunny,") || (descripSearch[i] == "sunny.")) {
             imgClass = "wi-day-sunny";
             break;
         }
